@@ -6,17 +6,17 @@ class GraphQlSetting {
   query MyQuery{
   todo{
     task
-    isCompleted
+    status
     }
     }
   
   """;
   static String addTask = """
-  mutation addTask(\$task:String,\$isComplete:Boolean){
-  insert_task(objects: {task: \$task, isComplete :"\$isComplete}){
+  mutation addTask(\$task:String,\$status:String){
+  insert_todo(objects: {task: \$task, status :\$status}){
   returning{
   task
-  isComplete
+  status
   }
   }
   }

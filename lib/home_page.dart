@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:learn_graphql/add_task.dart';
 import 'package:learn_graphql/service/graphQldata.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +30,10 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => AddTask() ));
+
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -44,9 +48,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(10),
                     child: Text(
                       listData[index]["task"],
-                      style: TextStyle(color: Colors.black,
-                      fontSize: 16),
-
+                      style: TextStyle(color: Colors.black, fontSize: 16),
                     )),
               );
             }),
